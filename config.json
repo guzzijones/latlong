@@ -1,0 +1,11 @@
+{
+   "inFile" : "inFile.txt",
+   "delim" : "\t",
+   "outFile" : "outFile.txt",
+   "address" : "addr",
+   "city" : "city",
+   "state" : "state",
+   "long" : "longitude",
+   "zip" : "zipcode",
+   "lat" : "latitude"
+}

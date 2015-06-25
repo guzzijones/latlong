@@ -1,0 +1,3 @@
+latitude	longitude	addr	city	state	zipcode
+		682 nw 44th terr	deerfield beach	fl	33442
+		689 nw 44th terr	deerfield beach	fl	33442
