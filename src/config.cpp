@@ -113,7 +113,8 @@ std::string config::getState()const{
 std::string config::getZipCode()const{
    std::stringstream zip;
    zip << _config["zip"];
-   return nstring::trim(zip.str(),"\"");
+   std::string tmpZip=nstring::trim(zip.str(),"\"");
+   return tmpZip;
 }
 
 void config::setZipCode(const std::string &in){

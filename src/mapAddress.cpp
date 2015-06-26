@@ -14,7 +14,7 @@ mapAddress::mapAddress(const std::string & Address,
   std::replace(_city.begin(),_city.end(),' ','+');
   std::replace(_state.begin(),_state.end(),' ','+');
   std::replace(_zip.begin(),_zip.end(),' ','+');
-   _totalURL=baseURL+"format=json&address&q="+_address+","+_city+","+state+","+zip+"&addressdetails=1&limit=1";
+   _totalURL=baseURL+"format=json&address&q="+_address+","+_city+","+state+","+zip.substr(0,5)+"&addressdetails=1&limit=1";
    std::cout << "totalurl: " << _totalURL << std::endl;
 }
 
@@ -43,11 +43,15 @@ int mapAddress::writer(char * data,size_t size,size_t nmemb, std::string * buffe
 int mapAddress::nominate(){
 
 	std::cout << "nominate funct" << std::endl;
+   struct curl_slist * list = NULL;
+   list=curl_slist_append(list,"From: ajonen@mailcan.com");
+   easy.setOption(CURLOPT_HTTPHEADER,list);
    easy.setOption(CURLOPT_URL,_totalURL.c_str());
-   easy.setOption(CURLOPT_HEADER,0);
+//   easy.setOption(CURLOPT_HEADER,1);
    easy.setOption(CURLOPT_FOLLOWLOCATION,1);
    easy.setOption(CURLOPT_WRITEFUNCTION,writer);
    easy.setOption(CURLOPT_WRITEDATA,&_result);
+   easy.setOption(CURLOPT_REFERER,"http://dimins.com");
 
 	std::cout << "ready " << std::endl;
    easy.perform();
@@ -61,6 +65,7 @@ int mapAddress::nominate(){
          return easy.isOK();
       }
    }
+   sleep(1);
    return easy.isOK();
 
 }

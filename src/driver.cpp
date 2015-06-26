@@ -56,9 +56,10 @@ if (parsingSuccessful)
 {
     std::cout << styledWriter.write(parsedFromString) << std::endl;
 }
-
-std::cout << "hello" << std::endl;
-std::cout << "Start of real program" << std::endl;
+//std::string tmpString= "hello\ta\tcolumn\t\t\t";
+//row tmp(tmpString,'\t');
+//std::cout << "hello" << std::endl;
+//std::cout << "Start of real program" << std::endl;
 /*
 std::string header = "Column1\tColumn2\tColumn3\n";
 std::string row1 = "data11\tdata21\tdata31\n";

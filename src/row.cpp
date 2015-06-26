@@ -8,11 +8,16 @@ row::row(const std::string & in,const char  Delim):_delim(Delim){
 
 void row::setValuesArray(const std::string & in,const char delim){
    std::string token;
+   std::cout << "delim: " << delim << std::endl;
    std::stringstream ss(in);
    while(std::getline(ss,token,_delim)){
+        std::cout << "token: " << token << std::endl;
         _values.push_back(token); 
 
    }
+   std::getline(ss,token);
+   _values.push_back(token); 
+   std::cout << "token: " << token << std::endl;
 }
 
 int row::getColumnNumber(const std::string & in){

@@ -1,11 +1,11 @@
 {
-   "inFile" : "inFile.txt",
+   "inFile" : "test2.txt",
    "delim" : "\t",
    "outFile" : "outFile.txt",
-   "address" : "addr",
-   "city" : "city",
-   "state" : "state",
-   "long" : "longitude",
-   "zip" : "zipcode",
-   "lat" : "latitude"
+   "address" : "cust_address",
+   "city" : "cust_city",
+   "state" : "cust_state",
+   "zip" : "cust_zipcode",
+   "long" : "cust_long",
+   "lat" : "cust_lat"
 }

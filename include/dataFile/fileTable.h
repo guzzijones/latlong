@@ -59,17 +59,9 @@ class fileTable : public tableAbs{
                rowWHeader tmpRowWHeader(inFileTable.getHeader(),row(tmp,inFileTable.getDelim()));
                std::cout << "tmprowWheader:***" << tmpRowWHeader.print() <<"****\n"<< std::endl;
                result=function.run(tmpRowWHeader);
-               if(result==false){
-                  resultFinal=false;
-               }
-               else{
-                  
-                  std::cout << "success : " << result << std::endl;
-                  row tmpRow = tmpRowWHeader.getRow();
-                  std::cout << "tmpRow: " << tmpRow.print() << std::endl;
-                  output.addRow(tmpRow);
-               }
-               i++;
+				   row tmpRow = tmpRowWHeader.getRow();
+               output.addRow(tmpRow);
+              i++;
       }
       return resultFinal; 
    }

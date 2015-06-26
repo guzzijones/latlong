@@ -33,11 +33,11 @@ config.json value definitons:
 
 
 #info
-this program uses nominatem to map a lat and long to an address.  It is important to not overload the server so you should
+this program uses nominatim to map a lat and long to an address.  It is important to not overload the server so you should
 not map every address every day if possible.  You should save lat and long for addresses already mapped.  Currently
 the program will not map an address if the lat column is already filled in.  At this time there is 
 no column to define how old a mapping was and remap that address, but it could be added in a future version.
-Usage of nominatem requires that you only map one address at a time so as not to overload the server.  This program follows that guidline.
+Usage of nominatim requires that you only map one address at a time so as not to overload the server.  This program follows that guidline.
 
 
 #useful links:
