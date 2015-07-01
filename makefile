@@ -15,9 +15,11 @@ EXE=driver
 #variables
 ###########
 CC=g++
-CPPFLAGS= -Wall -c -I./include/  -I./include/dataFile/ -Llibs/lib
-CPPFLAGS+= -g -MD -MP -std=c++0x
-LFLAGS= -Wall   -lcurl
+#CPPFLAGS= -Wall -c -I./include/  -I./include/dataFile/ -I/usr/include/ -DCURL_STATICLIB
+CPPFLAGS= -Wall -c -I./include/  -I./include/dataFile/ -I/usr/include/ 
+CPPFLAGS+= -g -MD -MP -std=c++0x 
+LFLAGS= -Wall  -lcurl 
+#LFLAGS= -static -L/usr/lib/x86_64-linux-gnu/libcurl.a -Wl,-Bsymbolic-functions -Wl,-z,relro -lidn -lgcrypt -llber -lldap -lrt -lgssapi_krb5 -lz -lgnutls -lgcrypt -lrtmp
 VPATH=src ./src/json
 
 all: $(EXE)

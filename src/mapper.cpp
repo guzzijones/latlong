@@ -58,9 +58,27 @@ bool mapper::addLatLong(rowWHeader & in){
       std::cout << "zip: " << zipCode<<std::endl;
       
       mapAddress mapMyHouse(address,city,state,zipCode);
-  		   int result=mapMyHouse.nominate();
+      std::cout << "TotalURL: " <<mapMyHouse.getTotalURL() << std::endl;
+  		int result=mapMyHouse.nominate();
+      if(result==0 && mapMyHouse.getLat()=="null"){//if full address fails try with just street and zip
+         mapMyHouse.setCity("");
+         mapMyHouse.setState("");
+         result=mapMyHouse.nominate();
+         std::cout << "Lat with address and Zip only: " << mapMyHouse.getLat();
+         std::cout << "Result: " << result;
+         std::cout << "TotalURL: " <<mapMyHouse.getTotalURL() << std::endl;
+      }
+      if(result==0 && mapMyHouse.getLat()=="null"){//if above fails then try with just zip
+         mapMyHouse.setAddress("");
+         mapMyHouse.setCity("");
+         mapMyHouse.setState("");
+         result=mapMyHouse.nominate();
+         std::cout << "Zip only: " << mapMyHouse.getLat();
+         std::cout << "Result: " << result;
+         std::cout << "TotalURL: " <<mapMyHouse.getTotalURL() << std::endl;
+      }
    
-      if(result==0&&mapMyHouse.getLat()!=""){
+      if(result==0&&mapMyHouse.getLat()!=""){//now set the values
 
          in.setColumnValue(_configuration.getLat(),mapMyHouse.getLat());
          in.setColumnValue(_configuration.getLong(),mapMyHouse.getLong());

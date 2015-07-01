@@ -29,6 +29,7 @@ public:
 
    std::string getResult()const{ return _result;};
 
+   std::string getTotalURL()const{return _totalURL;};
 
 protected:
 
@@ -40,13 +41,16 @@ private:
    std::string _state;
    std::string _zip;
 
+   std::string _email;
+   std::string _website;
+
    std::string _lat;
    std::string _long;
    std::string _totalURL; 
 
    Json::Value _resultJson;
    void replaceSpecialChars();
-
+   void setTotalURL();
    void setLatFromJson();
    void setLongFromJson();
 };

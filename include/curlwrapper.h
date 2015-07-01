@@ -2,7 +2,7 @@
 #define CURLWRAPPER_H
 #include <memory>
 #include <string>
-#include "curl/curl.h"
+#include <curl/curl.h>
 
 
 namespace curlwrapper{

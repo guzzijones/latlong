@@ -1,5 +1,5 @@
 {
-   "inFile" : "test2.txt",
+   "inFile" : "customer.txt",
    "delim" : "\t",
    "outFile" : "outFile.txt",
    "address" : "cust_address",
