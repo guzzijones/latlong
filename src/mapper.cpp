@@ -79,7 +79,7 @@ bool mapper::addLatLong(rowWHeader & in){
       }
    
       if(result==0&&mapMyHouse.getLat()!=""){//now set the values
-
+         std::cout << "setting values" << std::endl;
          in.setColumnValue(_configuration.getLat(),mapMyHouse.getLat());
          in.setColumnValue(_configuration.getLong(),mapMyHouse.getLong());
 			std::cout << "mapMyHouse.getLat(): " << mapMyHouse.getLat()<<std::endl;

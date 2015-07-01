@@ -4,17 +4,15 @@ std::string mapAddress::baseURL="http://nominatim.openstreetmap.org/search?";
 mapAddress::mapAddress(const std::string & Address,
                const std::string & city,
                const std::string & state,const std::string & zip){
-               _address=Address;
                _city=city;
                _state=state;
                _zip=zip;
                std::cout << "in map address constructor" << std::endl;
 //  _address.replace(_address.find(" "), 1, "+");
-  std::replace(_address.begin(),_address.end(),' ','+');
-  std::replace(_city.begin(),_city.end(),' ','+');
-  std::replace(_state.begin(),_state.end(),' ','+');
-  std::replace(_zip.begin(),_zip.end(),' ','+');
-  setTotalURL();
+   setAddress(Address);
+   setCity(city);
+   setState(state);
+   setZip(zip);
 }
 void mapAddress::setTotalURL(){
 
@@ -30,22 +28,33 @@ void mapAddress::setTotalURL(){
 
    _totalURL+="&addressdetails=1&limit=1";
 }
+std::string mapAddress::fix(std::string in){
+   std::replace(in.begin(),in.end(),' ','+');
+  std::replace(in.begin(),in.end(),'#','+');
+  std::replace(in.begin(),in.end(),'&','+');
+   return in; 
+   
+}
 void mapAddress::setAddress(const std::string & in){
    _address=in;
+   _address=fix(_address);
    setTotalURL();
 }
 
 void mapAddress::setCity(const std::string & in){
    _city=in;
+   _city=fix(_city);
    setTotalURL();
 }
 
 void mapAddress::setState(const std::string & in){
    _state=in;
+   _state=fix(_state);
    setTotalURL();
 }
 void mapAddress::setZip(const std::string & in){
    _zip=in;
+   _zip=fix(_zip);
    setTotalURL();
 }
 

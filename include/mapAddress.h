@@ -49,6 +49,8 @@ private:
    std::string _totalURL; 
 
    Json::Value _resultJson;
+
+   std::string fix(std::string in);
    void replaceSpecialChars();
    void setTotalURL();
    void setLatFromJson();

@@ -8,4 +8,5 @@
    "zip" : "cust_zipcode",
    "long" : "cust_long",
    "lat" : "cust_lat"
+   
 }
