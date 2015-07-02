@@ -9,13 +9,12 @@
 class mapAddress{
 
 public:
-   static std::string baseURL;
 
    static int writer(char * data,size_t size,size_t nmemb, std::string * buffer);
   curlwrapper::easy easy;
   mapAddress(const std::string & Address,
                const std::string & city,
-               const std::string & state,const std::string & zip);
+               const std::string & state,const std::string & zip,const std::string & url);
 
    void setAddress(const std::string & in);
    void setCity(const std::string & in);
@@ -34,7 +33,7 @@ public:
 protected:
 
 private:
-
+   std::string _baseURL;
    std::string _result;
    std::string _address;
    std::string _city;

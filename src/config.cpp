@@ -29,6 +29,10 @@ void config::checkJson(){
    if(!_config["delim"]){
       throw std::runtime_error("delim");
    }
+   if(!_config["api_url"]){
+      throw std::runtime_error("delim");
+   }
+ 
   std::stringstream delim;
   delim << _config["delim"];
   std::string delimS=delim.str();
@@ -115,6 +119,19 @@ std::string config::getZipCode()const{
    zip << _config["zip"];
    std::string tmpZip=nstring::trim(zip.str(),"\"");
    return tmpZip;
+}
+std::string config::getURL()const{
+   std::stringstream url;
+ //  std::cout << "getting url" << std::endl;
+   url<< _config["api_url"];
+//   std::cout << "url: " << url;
+   std::string tmpUrl=nstring::trim(url.str(),"\"");
+   return tmpUrl;
+}
+
+
+void config::setURL(const std::string &in){
+      _config["api_url"]=in;
 }
 
 void config::setZipCode(const std::string &in){

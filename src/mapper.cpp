@@ -45,11 +45,14 @@ bool mapper::addLatLong(rowWHeader & in){
       std::string longV = in.getColumnValue(_configuration.getLong());
 
       std::string city =  in.getColumnValue(_configuration.getCity());
+      std::cout << "getting state" << std::endl;
       std::string state =  in.getColumnValue(_configuration.getState()) ;
       std::string zipCode= in.getColumnValue(_configuration.getZipCode()) ;
       std::string address=  in.getColumnValue(_configuration.getAddress()) ;
       std::string latv= in.getColumnValue(_configuration.getLat()) ;
-
+      std::cout << "getting url" << std::endl;
+      std::string URL=_configuration.getURL();
+      std::cout << "url: " << URL <<std::endl;
    if(latv=="" || longV==""){
       std::cout << "mapaddress " << std::endl;
       std::cout << "address: " << address<<std::endl;
@@ -57,7 +60,7 @@ bool mapper::addLatLong(rowWHeader & in){
       std::cout << "state: " << state<<std::endl;
       std::cout << "zip: " << zipCode<<std::endl;
       
-      mapAddress mapMyHouse(address,city,state,zipCode);
+      mapAddress mapMyHouse(address,city,state,zipCode,URL);
       std::cout << "TotalURL: " <<mapMyHouse.getTotalURL() << std::endl;
   		int result=mapMyHouse.nominate();
       if(result==0 && mapMyHouse.getLat()=="null"){//if full address fails try with just street and zip

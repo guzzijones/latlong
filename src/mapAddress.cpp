@@ -1,24 +1,25 @@
 #include "mapAddress.h"
 //std::string mapAddress::baseURL="http://nominatim.openstreetmap.org/search?";
-std::string mapAddress::baseURL="http://open.mapquestapi.com/nominatim/v1/search.php?";
 
 mapAddress::mapAddress(const std::string & Address,
                const std::string & city,
-               const std::string & state,const std::string & zip){
+               const std::string & state,const std::string & zip,const std::string & url){
                _city=city;
                _state=state;
                _zip=zip;
                std::cout << "in map address constructor" << std::endl;
 //  _address.replace(_address.find(" "), 1, "+");
+   _baseURL=url;
    setAddress(Address);
    setCity(city);
    setState(state);
    setZip(zip);
+   
    std::cout << "TotalURL: " << _totalURL << std::endl;
 }
 void mapAddress::setTotalURL(){
 
-   _totalURL=baseURL+"format=json&address&q=";
+   _totalURL=_baseURL+"format=json&address&q=";
    if(_address!="")
       _totalURL+=_address;
    if(_city!="")
@@ -106,8 +107,7 @@ std::string mapAddress::getLong(){
    return _long;
 }
 std::string mapAddress::getNomError(){
-//   return easy.getErrorMessage();
-   return "test";
+   return easy.getErrorMessage();
 }
 
 void mapAddress::setLatFromJson(){

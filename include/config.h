@@ -17,8 +17,8 @@ class config{
    public:
      config(const std::string & filename);
      config(){};
-
-     std::string getCity()const;
+      std::string getURL()const;
+      std::string getCity()const;
       std::string getAddress()const;
       std::string getState()const;
       std::string getZipCode()const;
@@ -37,6 +37,7 @@ class config{
       void setInFile(const std::string & in);
       void setOutFile(const std::string & in);
       void setDelim(const std::string & in);
+      void setURL(const std::string & in);
 
       std::vector<std::string> getColumnNames()const;//used to check if each column is set
 };
