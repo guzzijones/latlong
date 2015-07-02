@@ -1,5 +1,6 @@
 #include "mapAddress.h"
-std::string mapAddress::baseURL="http://nominatim.openstreetmap.org/search?";
+//std::string mapAddress::baseURL="http://nominatim.openstreetmap.org/search?";
+std::string mapAddress::baseURL="http://open.mapquestapi.com/nominatim/v1/search.php?";
 
 mapAddress::mapAddress(const std::string & Address,
                const std::string & city,
@@ -13,6 +14,7 @@ mapAddress::mapAddress(const std::string & Address,
    setCity(city);
    setState(state);
    setZip(zip);
+   std::cout << "TotalURL: " << _totalURL << std::endl;
 }
 void mapAddress::setTotalURL(){
 
@@ -110,12 +112,22 @@ std::string mapAddress::getNomError(){
 
 void mapAddress::setLatFromJson(){
    std::stringstream tmpLat;
+   try{
    tmpLat << _resultJson[0]["lat"];
+   }catch(std::exception & e){
+      tmpLat << ""; 
+      std::cout << "Error " << e.what() << std::endl;
+   }
   _lat=nstring::trim(tmpLat.str(),"\""); 
 }
 void mapAddress::setLongFromJson(){
    std::stringstream tmpLong;
+   try{
    tmpLong << _resultJson[0]["lon"];
+   }catch(std::exception & e){
+      tmpLong << ""; 
+      std::cout << "Error " << e.what() << std::endl;
+   }
   _long=nstring::trim(tmpLong.str(),"\""); 
 
 }
