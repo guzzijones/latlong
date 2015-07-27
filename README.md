@@ -37,7 +37,7 @@ config.json value definitons:
 
 
 #info
-This program uses nominatim to geocode an address and return the latitude and longitue.  It is written in c++ with a dependency of libcurl.
+This program uses nominatim to geocode an address and return the latitude and longitude.  It is written in c++ with a dependency of libcurl.
 It is important to not overload the server so you should
 not map every address every day if possible.  You should save lat and long for addresses already mapped.  
 Currentlythe program will not map an address if the lat column is already filled in.  At this time there is 
