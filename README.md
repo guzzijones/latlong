@@ -30,7 +30,8 @@ config.json value definitons:
    6. "state" : "[state column name from input file]",
    7. "zip" : "[zipcode column name from input file]",
    8. "long" : "[longitude column name from input file]",
-   9. "lat" : "[latitude column name from input file]"
+   9. "lat" : "[latitude column name from input file]",
+   10. "url" : "[URL of the nominatim server]"
 
 2. run driver.exe
 
