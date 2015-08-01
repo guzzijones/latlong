@@ -1,5 +1,5 @@
 # latlong
-Geocode the latitude and longitude for a given address, city, state, and zip written in c++.
+Geocode the latitude and longitude for a given address, city, state, and zip. This program is written in c++.
 
 #os 
 linux
